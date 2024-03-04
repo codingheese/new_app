@@ -27,3 +27,15 @@ jobs:
 
       - name: Flutter test
         run: flutter test
+
+      - name: Build web app
+        run: flutter build web
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NEW_MH_APP_1 }}'
+          channelId: live
+          projectId: new-mh-app-1
+
+      
